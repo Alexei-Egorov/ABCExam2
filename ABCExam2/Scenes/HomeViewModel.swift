@@ -52,4 +52,26 @@ final class HomeViewModel {
     func getCity(at indexPath: IndexPath) -> City {
         cities[indexPath.row]
     }
+    
+    func getStatistics() -> String {
+        var counts: [Character: Int] = [:]
+        let strings = allCities.map(\.title)
+        
+        for string in strings {
+            for char in string.lowercased() {
+                guard char.isLetter else { continue }
+                counts[char, default: 0] += 1
+            }
+        }
+        
+        let top3 = counts.sorted { $0.value > $1.value }.prefix(3)
+        
+        var result = ""
+        
+        for item in top3 {
+            result += "\(item.key) = \(item.value)\n"
+        }
+        
+        return result
+    }
 }
