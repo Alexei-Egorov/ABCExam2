@@ -33,17 +33,12 @@ final class CityCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupConstraints()
-        setupView()
+        contentView.backgroundColor = .white
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError()
-    }
-    
-    private func setupView() {
-        contentView.layer.cornerRadius = 15
-        contentView.backgroundColor = .appCyan
     }
     
     // MARK: - Public API

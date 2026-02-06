@@ -4,28 +4,40 @@ extension CityCell {
     
     func setupConstraints() {
         
-        contentView.addSubview(cityImageView)
+        let containerView = UIView().disableAutoresizingMask()
+        containerView.layer.cornerRadius = 15
+        containerView.backgroundColor = .appCyan
+        
+        contentView.addSubview(containerView)
         NSLayoutConstraint.activate([
-            cityImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            cityImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            cityImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -5),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2)
+        ])
+        
+        containerView.addSubview(cityImageView)
+        NSLayoutConstraint.activate([
+            cityImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
+            cityImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 5),
+            cityImageView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -5),
             cityImageView.widthAnchor.constraint(equalToConstant: 70),
             cityImageView.heightAnchor.constraint(equalToConstant: 70)
         ])
         
-        contentView.addSubview(titleLabel)
+        containerView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: cityImageView.trailingAnchor, constant: 5),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -5)
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: containerView.trailingAnchor, constant: -5)
         ])
         
-        contentView.addSubview(subtitleLabel)
+        containerView.addSubview(subtitleLabel)
         NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             subtitleLabel.leadingAnchor.constraint(equalTo: cityImageView.trailingAnchor, constant: 5),
-            subtitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -5),
-            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -5)
+            subtitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: containerView.trailingAnchor, constant: -5),
+            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -5)
         ])
     }
 }

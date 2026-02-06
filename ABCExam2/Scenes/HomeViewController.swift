@@ -49,7 +49,6 @@ class HomeViewController: UIViewController {
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 14)
         label.textColor = .black
-//        label.text = "Predefined overlay text"
         return label
     }()
     
