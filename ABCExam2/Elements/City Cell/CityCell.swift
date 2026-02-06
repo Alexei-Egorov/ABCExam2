@@ -8,6 +8,49 @@ final class CityCell: UITableViewCell {
     
     let cityImageView: UIImageView = {
         let imageView = UIImageView().disableAutoresizingMask()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 15
         return imageView
     }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel().disableAutoresizingMask()
+        label.numberOfLines = 0
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    let subtitleLabel: UILabel = {
+        let label = UILabel().disableAutoresizingMask()
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 14)
+        return label
+    }()
+    
+    // MARK: - Initialization
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupConstraints()
+        setupView()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    private func setupView() {
+        contentView.layer.cornerRadius = 15
+        contentView.backgroundColor = .appCyan
+    }
+    
+    // MARK: - Public API
+    
+    func configure(with city: City) {
+        cityImageView.image = UIImage(named: city.imageName)
+        titleLabel.text = city.title
+        subtitleLabel.text = city.subtitle
+    }
 }

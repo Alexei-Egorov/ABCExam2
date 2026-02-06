@@ -14,9 +14,12 @@
 		FB6CF1FA2F35AC3400C2C00C /* ImageCell.Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6CF1F92F35AC3400C2C00C /* ImageCell.Layout.swift */; };
 		FB6CF1FD2F35AE6800C2C00C /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6CF1FC2F35AE6800C2C00C /* City.swift */; };
 		FB6CF2002F35B06A00C2C00C /* HorizontalDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6CF1FF2F35B06A00C2C00C /* HorizontalDotsView.swift */; };
-		FB6CF2032F35C12A00C2C00C /* SwipeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6CF2022F35C12A00C2C00C /* SwipeCollectionView.swift */; };
 		FB6CF2062F35C51C00C2C00C /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6CF2052F35C51C00C2C00C /* CityCell.swift */; };
 		FB6CF2082F35C6A200C2C00C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB6CF2072F35C6A200C2C00C /* Colors.xcassets */; };
+		FB6CF20A2F35D2C300C2C00C /* CityCell.Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6CF2092F35D2C300C2C00C /* CityCell.Layout.swift */; };
+		FB6CF20D2F35DC4E00C2C00C /* CityHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6CF20C2F35DC4E00C2C00C /* CityHeader.swift */; };
+		FB6CF20F2F35DCCA00C2C00C /* CityHeader.Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6CF20E2F35DCCA00C2C00C /* CityHeader.Layout.swift */; };
+		FB6CF2112F35E92B00C2C00C /* UIViewController.Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6CF2102F35E92B00C2C00C /* UIViewController.Ext.swift */; };
 		FBE0B6842F35961C00BDE7CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE0B67E2F35961C00BDE7CC /* AppDelegate.swift */; };
 		FBE0B6852F35961C00BDE7CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE0B6812F35961C00BDE7CC /* SceneDelegate.swift */; };
 		FBE0B6862F35961C00BDE7CC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE0B6822F35961C00BDE7CC /* HomeViewController.swift */; };
@@ -33,9 +36,12 @@
 		FB6CF1F92F35AC3400C2C00C /* ImageCell.Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.Layout.swift; sourceTree = "<group>"; };
 		FB6CF1FC2F35AE6800C2C00C /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		FB6CF1FF2F35B06A00C2C00C /* HorizontalDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalDotsView.swift; sourceTree = "<group>"; };
-		FB6CF2022F35C12A00C2C00C /* SwipeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCollectionView.swift; sourceTree = "<group>"; };
 		FB6CF2052F35C51C00C2C00C /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		FB6CF2072F35C6A200C2C00C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FB6CF2092F35D2C300C2C00C /* CityCell.Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.Layout.swift; sourceTree = "<group>"; };
+		FB6CF20C2F35DC4E00C2C00C /* CityHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHeader.swift; sourceTree = "<group>"; };
+		FB6CF20E2F35DCCA00C2C00C /* CityHeader.Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHeader.Layout.swift; sourceTree = "<group>"; };
+		FB6CF2102F35E92B00C2C00C /* UIViewController.Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.Ext.swift; sourceTree = "<group>"; };
 		FBE0B6462F35933200BDE7CC /* ABCExam2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABCExam2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBE0B67E2F35961C00BDE7CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBE0B67F2F35961C00BDE7CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				FB6CF1EE2F35A8AF00C2C00C /* UIVIew.Ext.swift */,
+				FB6CF2102F35E92B00C2C00C /* UIViewController.Ext.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -70,9 +77,9 @@
 			children = (
 				FB6CF1F32F35A96400C2C00C /* Carousel Cell */,
 				FB6CF1F62F35AAF400C2C00C /* ImageCell */,
+				FB6CF20B2F35DC3D00C2C00C /* City Header */,
 				FB6CF2042F35C50D00C2C00C /* City Cell */,
 				FB6CF1FE2F35B04D00C2C00C /* Horizontal Dots View */,
-				FB6CF2012F35C11100C2C00C /* Swipe Collection View */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -111,20 +118,22 @@
 			path = "Horizontal Dots View";
 			sourceTree = "<group>";
 		};
-		FB6CF2012F35C11100C2C00C /* Swipe Collection View */ = {
-			isa = PBXGroup;
-			children = (
-				FB6CF2022F35C12A00C2C00C /* SwipeCollectionView.swift */,
-			);
-			path = "Swipe Collection View";
-			sourceTree = "<group>";
-		};
 		FB6CF2042F35C50D00C2C00C /* City Cell */ = {
 			isa = PBXGroup;
 			children = (
+				FB6CF2092F35D2C300C2C00C /* CityCell.Layout.swift */,
 				FB6CF2052F35C51C00C2C00C /* CityCell.swift */,
 			);
 			path = "City Cell";
+			sourceTree = "<group>";
+		};
+		FB6CF20B2F35DC3D00C2C00C /* City Header */ = {
+			isa = PBXGroup;
+			children = (
+				FB6CF20E2F35DCCA00C2C00C /* CityHeader.Layout.swift */,
+				FB6CF20C2F35DC4E00C2C00C /* CityHeader.swift */,
+			);
+			path = "City Header";
 			sourceTree = "<group>";
 		};
 		FBE0B63D2F35933200BDE7CC = {
@@ -258,17 +267,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6CF20F2F35DCCA00C2C00C /* CityHeader.Layout.swift in Sources */,
 				FBE0B6842F35961C00BDE7CC /* AppDelegate.swift in Sources */,
 				FBE0B6852F35961C00BDE7CC /* SceneDelegate.swift in Sources */,
+				FB6CF20D2F35DC4E00C2C00C /* CityHeader.swift in Sources */,
 				FB6CF2002F35B06A00C2C00C /* HorizontalDotsView.swift in Sources */,
 				FB6CF1F82F35AB0100C2C00C /* ImageCell.swift in Sources */,
 				FB6CF1EF2F35A8AF00C2C00C /* UIVIew.Ext.swift in Sources */,
 				FBE0B6862F35961C00BDE7CC /* HomeViewController.swift in Sources */,
 				FB6CF1F22F35A94B00C2C00C /* CarouselCell.swift in Sources */,
+				FB6CF20A2F35D2C300C2C00C /* CityCell.Layout.swift in Sources */,
 				FBE0B68F2F35982700BDE7CC /* HomeViewController.Layout.swift in Sources */,
 				FB6CF1FD2F35AE6800C2C00C /* City.swift in Sources */,
-				FB6CF2032F35C12A00C2C00C /* SwipeCollectionView.swift in Sources */,
 				FB6CF1F52F35A9E800C2C00C /* CarouselCell.Layout.swift in Sources */,
+				FB6CF2112F35E92B00C2C00C /* UIViewController.Ext.swift in Sources */,
 				FB6CF1FA2F35AC3400C2C00C /* ImageCell.Layout.swift in Sources */,
 				FB6CF2062F35C51C00C2C00C /* CityCell.swift in Sources */,
 				FBE0B68D2F3596D900BDE7CC /* HomeViewModel.swift in Sources */,

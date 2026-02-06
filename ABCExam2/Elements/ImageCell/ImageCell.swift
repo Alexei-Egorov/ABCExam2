@@ -10,6 +10,7 @@ final class ImageCell: UICollectionViewCell {
         let imageView = UIImageView().disableAutoresizingMask()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 15
+        imageView.clipsToBounds = true
         return imageView
     }()
     

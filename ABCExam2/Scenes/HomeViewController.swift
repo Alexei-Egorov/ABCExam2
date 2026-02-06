@@ -1,4 +1,5 @@
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
     
@@ -8,13 +9,17 @@ class HomeViewController: UIViewController {
         let tableView = UITableView().disableAutoresizingMask()
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
+        tableView.allowsSelection = false
+        tableView.register(CityHeader.self, forHeaderFooterViewReuseIdentifier: CityHeader.cellname)
         tableView.register(CarouselCell.self, forCellReuseIdentifier: CarouselCell.cellName)
+        tableView.register(CityCell.self, forCellReuseIdentifier: CityCell.cellName)
         return tableView
     }()
     
     // MARK: - Properties
     
     private let viewModel: HomeViewModel
+    private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Initialization
     
@@ -34,6 +39,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+        setupSubscriptions()
     }
 
     // MARK: - Setup Methods
@@ -42,6 +48,38 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .appCyanLight
         
         tableView.dataSource = self
+        tableView.delegate = self
+        addHidingKeyboardOnTap()
+    }
+    
+    private func setupSubscriptions() {
+        viewModel
+            .$update
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink
+        { [weak self] _ in
+            self?.tableView.reloadData()
+        }.store(in: &subscriptions)
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        section == 1 ? 60 : .leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 1 else { return nil }
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: CityHeader.cellname) as! CityHeader
+        header.searchTextField.delegate = self
+        header.delegate = self
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        .leastNonzeroMagnitude
     }
 }
 
@@ -79,8 +117,26 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     private func getCityCell(for indexPath: IndexPath) -> CityCell {
-        // TODO:
-        return .init()
+        let cell = tableView.dequeueReusableCell(withIdentifier: CityCell.cellName) as! CityCell
+        let city = viewModel.getCity(at: indexPath)
+        cell.configure(with: city)
+        return cell
     }
 }
 
+extension HomeViewController: CityHeaderDelegate {
+    func textDidChange(text: String) {
+        viewModel.searchText = text
+    }
+}
+
+extension HomeViewController: UISearchTextFieldDelegate {
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        viewModel.searchText = textField.text ?? ""
+    }
+}
